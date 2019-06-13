@@ -108,3 +108,9 @@ if ! command -v sed >/dev/null 2>&1; then
 	echo "sed not found, but required."
 	exit 127
 fi
+
+# Make sure /etc/environment file exist
+[ ! -f /etc/environment ] && touch /etc/environment
+
+# Auto load envs when sourcing
+source /etc/environment
